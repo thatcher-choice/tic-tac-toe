@@ -3,7 +3,7 @@ import GameBoard from "./component/GameBoard.jsx"
 import { useState } from "react"
 import Log from "./component/Log.jsx";
 import { WINNING_COMBINATIONS } from "./winningCombination.js";
-import GameOver from "./component/gameOver.jsx";
+import GameOver from "./component/GameOver.jsx";
 function getActivePlayer(gameTurn){
   let currPlayer = 'X';
   if(gameTurn.length > 0 && gameTurn[0].player === 'X'){
@@ -32,12 +32,9 @@ function App() {
     const firstCombination  = gameBoard[combination[0].row][combination[0].column]
     const secondCombination  = gameBoard[combination[1].row][combination[1].column]
     const thirdCombination  = gameBoard[combination[2].row][combination[2].column]
-    console.log(firstCombination, secondCombination, thirdCombination);
     if(firstCombination && firstCombination === secondCombination && firstCombination === thirdCombination)
     {
       winner = player[firstCombination];
-      console.log(player, 'playeraname');
-      console.log(winner, 'winner');
     }
   }
   let isDraw =  (gameTurn.length === 9 && !winner);
@@ -58,7 +55,6 @@ function App() {
       [symbol] : name
     };
   })
-  console.log(player, 'playeraname');
   }
   return (
     <main>
